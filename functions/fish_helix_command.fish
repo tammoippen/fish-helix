@@ -250,12 +250,12 @@ function __fish_helix_goto_first_nonwhitespace
     end
 
     # Move to the beginning of the line
-    commandline -f beginning-of-line
+    commandline -f beginning-of-line forward-bigword forward-char
 
-    # Move forward to the first non-whitespace character
-    while string match -qr '^\s' (commandline -c)
-        commandline -f forward-char
-    end
+    # # Move forward to the first non-whitespace character
+    # while string match -qr '^\s' (commandline -c)
+    #     commandline -f forward-char
+    # end
 end
 
 function __fish_helix_goto_line -a number
