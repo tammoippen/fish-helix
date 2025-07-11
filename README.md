@@ -5,6 +5,12 @@ helix key bindings for fish
 
 Dependencies: fish >= 3.6², GNU tools¹, perl.
 
+Via `fisher` plugin manager:
+``` shell
+$ fisher install tammoippen/fish-helix
+```
+Manually:
+
 1. Copy `functions` directory as `~/.config/fish/functions`.
 2. Run `fish_helix_key_bindings`.
 
