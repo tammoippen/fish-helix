@@ -249,13 +249,13 @@ function __fish_helix_goto_first_nonwhitespace
         return
     end
 
-    # Move to the beginning of the line
-    commandline -f beginning-of-line forward-bigword forward-char
+    # Find the position of the first non-whitespace character
+    set -l first_nonws_pos (string match -rn '\S' -- "$current_cmd" | cut -d' ' -f1)
 
-    # # Move forward to the first non-whitespace character
-    # while string match -qr '^\s' (commandline -c)
-    #     commandline -f forward-char
-    # end
+    if test -n "$first_nonws_pos"
+        # Move cursor to that position (subtract 1 because commandline -C is 0-based)
+        commandline -C (math "$first_nonws_pos" - 1)
+    end
 end
 
 function __fish_helix_goto_line -a number
